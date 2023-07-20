@@ -6,10 +6,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamalipe/todo-app-express-mongo-ts.git"
+    "url": "https://github.com/iamalipe/chat-app-express-mongo-ts.git"
   },
   "description": "This is the backend for A Simple Chat app.",
-  "homepage": "https://todo-app-express-mongo-ts.onrender.com/",
+  "homepage": "https://chat-app-express-mongo-ts.onrender.com",
   "private": true,
   "version": "1.0.0",
   "scripts": {
