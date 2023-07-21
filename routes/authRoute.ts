@@ -59,9 +59,17 @@ authRoute.post("/login", async (req: Request, res: Response) => {
       expiresIn: "12h",
     });
     // For normal jwt token use
-    // res.status(200).json({ message: "User logged in successfully", token });
-    res.cookie("token", token);
-    res.status(200).json({ userId: user._id, email });
+    res
+      .status(200)
+      .json({
+        message: "User logged in successfully",
+        token,
+        userId: user._id,
+        email,
+      });
+
+    // res.cookie("token", token);
+    // res.status(200).json({ userId: user._id, email });
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).json({ error: "Internal server error" });
