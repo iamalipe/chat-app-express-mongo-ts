@@ -1,31 +1,38 @@
 import { Document, Schema, model } from "mongoose";
 
-export interface IOnlyUser {
-  id: string;
-  email: string;
-}
-export interface IConversation extends Document {
+export interface IConversation {
   _id: {
     id: string;
   };
-  createTime: Date;
+  users: string[];
+  createdAt: Date;
+  modifyAt: Date;
+  lastMessageId: string;
   lastMessageTime: Date;
   lastMessage: string;
-  users: IOnlyUser[];
+  newMessageCount: number;
 }
 
-const conversationSchema = new Schema<IConversation>({
-  createTime: {
+const conversationSchema: Schema<IConversation> = new Schema({
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  modifyAt: {
     type: Date,
     default: Date.now,
   },
   lastMessageTime: {
     type: Date,
-    required: false,
   },
   lastMessage: {
     type: String,
-    required: false,
+  },
+  lastMessageId: {
+    type: String,
+  },
+  newMessageCount: {
+    type: Number,
   },
   users: [],
 });

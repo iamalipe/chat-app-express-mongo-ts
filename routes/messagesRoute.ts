@@ -1,5 +1,5 @@
 import express, { Response } from "express";
-import { IOnlyUser, IUser, conversationModel, messagesModel } from "../models";
+import { IUser, conversationModel, messagesModel } from "../models";
 import { AuthenticatedRequest } from "../middlewares";
 export const messagesRoute = express.Router();
 

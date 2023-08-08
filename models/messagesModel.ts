@@ -5,15 +5,16 @@ export interface IMessages extends Document {
     id: string;
   };
   conversationId: string;
-  value: string;
+  message: string;
   isImage: boolean;
-  createTime: Date;
+  imageUrl: string;
+  createdAt: Date;
+  modifyAt: Date;
   senderId: string;
-  senderEmail: string;
 }
 
-const messagesSchema = new Schema<IMessages>({
-  value: {
+const messagesSchema: Schema<IMessages> = new Schema({
+  message: {
     type: String,
     required: true,
   },
@@ -21,15 +22,19 @@ const messagesSchema = new Schema<IMessages>({
     type: Boolean,
     required: true,
   },
-  createTime: {
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+  modifyAt: {
     type: Date,
     default: Date.now,
   },
   senderId: {
-    type: String,
-    required: true,
-  },
-  senderEmail: {
     type: String,
     required: true,
   },
